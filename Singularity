@@ -17,7 +17,7 @@ Includecmd: no
     npm install
     chmod -R 0755 .
 
-%apprun pdf_server
+%startscript
     cd /scif/apps/pdf_server/pdf_server
     # Use nohup and /dev/null to completely detach server process from terminal
     nohup npm start > /dev/null 2>&1 < /dev/null &
