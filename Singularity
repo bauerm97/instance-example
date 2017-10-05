@@ -24,5 +24,8 @@ Includecmd: no
 
 
 %apprun pdf
-    curl -o "/scif/data/pdf/output/${2}" "${URL}:${PORT}/api/render?url=${1}"
+    if [ -z "${1:-}" ]; then
+        echo "Usage: singularity run --app pdf <instance://name> <URL> [output file]"
+    fi
+    curl -o "/scif/data/pdf/output/${2:-output.pdf}" "${URL}:${PORT}/api/render?url=${1}"
     
