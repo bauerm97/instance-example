@@ -23,9 +23,10 @@ Includecmd: no
     nohup npm start > /dev/null 2>&1 < /dev/null &
 
 
-%apprun pdf
+%apprun pdf_client
     if [ -z "${1:-}" ]; then
         echo "Usage: singularity run --app pdf <instance://name> <URL> [output file]"
+        exit 1
     fi
     curl -o "/scif/data/pdf/output/${2:-output.pdf}" "${URL}:${PORT}/api/render?url=${1}"
     
